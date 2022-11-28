@@ -8,6 +8,7 @@ engine.make_number(digit_count)
 
 user_input = input(f'Угадайте, что загадал компьютер? Введите число из {digit_count} цифр: ')
 user_number = list()
+steps = 1
 for digit in user_input:
     user_number.append(int(digit))
 bulls_and_cows = engine.check_number(user_number)
@@ -17,9 +18,8 @@ while bulls_and_cows['bulls'] != digit_count:
     user_number = list()
     for digit in user_input:
         user_number.append(int(digit))
+    steps += 1
     bulls_and_cows = engine.check_number(user_number)
 
 print('Вы отгадали число!')
-
-
-print(number)
+print(f'Совершено {steps} ходов. Хотите еще партию?')
